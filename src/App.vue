@@ -4,11 +4,28 @@
     <router-link :to="{name:'about'}">About</router-link>
     <router-link to="/testRouter">  
       testRouter</router-link>
-
-  </nav>
-  <router-view/>  
-</template>
+     
+    </nav>
+    <div v-for="job in jobs" :key="job.id">
+      <h1>{{ job.name }}</h1>
+      <h1>{{ job.reg }}</h1>
+    </div>
+  <router-view/> 
+  </template>
 <script>
+export default{
+  data(){
+    return{
+      jobs:[]
+    }
+  },
+  mounted(){
+  fetch('http://localhost:3000/jobs')
+  .then(res =>res.json())
+  .then(data =>this.jobs = data)
+  .catch(err =>console.log(err.message))
+}
+}
 
 </script>
 <style>
