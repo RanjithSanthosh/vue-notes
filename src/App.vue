@@ -16,7 +16,8 @@
 export default{
   data(){
     return{
-      jobs:[]
+      jobs:[],
+       name:'hello'
     }
   },
   mounted(){
@@ -44,6 +45,7 @@ nav {
 nav a {
   font-weight: bold;
   color: #2c3e50;
+
 }
 
 nav a.router-link-exact-active {
